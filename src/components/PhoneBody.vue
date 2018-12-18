@@ -1,11 +1,11 @@
 <template>
   <div class="phone-body">
-    <div v-if="step === 1" class="feed">
+    <div v-if="step === 1" class="feed" v-dragscroll.y>
       <vuegram-post v-for="post in posts" :post="post" :key="posts.indexOf(post)"></vuegram-post>
     </div>
     <div v-if="step === 2">
       <div class="selected-image" :style="{ backgroundImage: 'url(' + image + ')' }" :class="selectedFilter"></div>
-      <div class="filter-container">
+      <div class="filter-container" v-dragscroll.x>
         <filter-type v-for="filter in filters" :filter="filter" :image="image" :key="filters.indexOf(filter)"></filter-type>
       </div>
     </div>
